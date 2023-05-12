@@ -4,11 +4,13 @@
 size_t
 binary_tree_count_nodes(const binary_tree_t *tree)
 {
+    size_t left_count = 0, right_count = 0;
+    
     if (!tree)
         return 0;
 
-    size_t left_count = binary_tree_count_nodes(tree->left);
-    size_t right_count = binary_tree_count_nodes(tree->right);
+    left_count = binary_tree_count_nodes(tree->left);
+    right_count = binary_tree_count_nodes(tree->right);
 
     return (1 + left_count + right_count);
 }
@@ -43,5 +45,4 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
     expected_node_count = (1 << height) - 1;
 
     return (count_nodes == expected_node_count);
-
 }
