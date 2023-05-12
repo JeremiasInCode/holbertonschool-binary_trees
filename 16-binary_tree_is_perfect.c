@@ -21,7 +21,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	size_t left_h = 1, right_h = 1;
 
 	if (tree == NULL)
-		return (1);
+		return (0);
     
     left_h += binary_tree_height(tree->left);
     right_h += binary_tree_height(tree->right);
@@ -39,6 +39,9 @@ size_t binary_tree_height(const binary_tree_t *tree)
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
     size_t height = 0, count_nodes = 0, expected_node_count = 0;
+
+    if (!tree)
+        return (0);
 
     height = binary_tree_height(tree);
     count_nodes = binary_tree_count_nodes(tree);
